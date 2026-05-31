@@ -77,8 +77,8 @@ export function Registry() {
           </p>
           <OrnamentDivider />
           <h2 style={{
-            fontFamily: '"Cinzel", serif',
-            fontWeight: 600,
+            fontFamily: 'AmsterdamOne, cursive',
+            // fontWeight: 600,
             fontSize: "clamp(2.2rem, 10vw, 4.8rem)",
             color: NAVY,
             lineHeight: 1.1,

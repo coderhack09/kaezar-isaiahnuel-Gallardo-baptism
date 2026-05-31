@@ -4,6 +4,7 @@ const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'tr
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['motion', 'framer-motion'],
   eslint: {
     ignoreDuringBuilds: true,
   },

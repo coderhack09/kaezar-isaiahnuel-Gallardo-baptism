@@ -7,7 +7,7 @@ export const siteConfig = {
     child: "Kaezar Isaiahnuel Gallardo",
     childNickname: "King",
     monogram:"/monogram/new-mongoram.png" ,//Ltryl
-    backgroundMusic:"/background_music/For This Child - Baby Dedication Song - Ken Blount.mp3",
+    // backgroundMusic:"/background_music/For This Child - Baby Dedication Song - Ken Blount.mp3",
     parents: "Engr. Carl Kevin & Christine Marie Gallardo",
   },
   googleAPI:{
@@ -31,7 +31,7 @@ export const siteConfig = {
   },
   details: {
     rsvp: {
-      deadline: "JULY 4, 2026",
+      deadline: "June 30, 2026",
       contact: "Kaezar Isaiahnuel Gallardo",
       phone: "+973 3999 9999",
     },

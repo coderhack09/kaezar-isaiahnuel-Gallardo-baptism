@@ -51,12 +51,12 @@ export function Welcome() {
 
             {/* ── "The Christening of" ── */}
             <p style={{
-              fontFamily: '"Cinzel", serif',
-              fontSize: "clamp(0.62rem, 2.4vw, 0.78rem)",
-              letterSpacing: "0.22em",
-              color: "rgba(72,112,148,0.68)",
+              fontFamily: '"Gistesy", cursive !important',
+              fontSize: "clamp(1.62rem, 2.4vw, 1.78rem)",
+              letterSpacing: "0.02em",
+              color: "#C4965A",
               marginBottom: "0.2rem",
-              textTransform: "uppercase",
+              filter: "drop-shadow(0 2px 6px rgba(196,152,88,0.16))",
             }}>
               The Christening of
             </p>
@@ -168,7 +168,7 @@ export function Welcome() {
             </div>
 
             {/* ── Body paragraphs ── */}
-            <div className="w-full flex flex-col" style={{ gap: "clamp(1rem, 3.2vw, 1.5rem)", marginBottom: "clamp(1.6rem, 5vw, 2.6rem)" }}>
+            {/* <div className="w-full flex flex-col" style={{ gap: "clamp(1rem, 3.2vw, 1.5rem)", marginBottom: "clamp(1.6rem, 5vw, 2.6rem)" }}>
               <p style={{
                 fontFamily: '"Fahkwang", sans-serif', fontWeight: 400,
                 fontSize: "clamp(0.80rem, 2.8vw, 0.96rem)",
@@ -216,17 +216,17 @@ export function Welcome() {
                 details and reminders for the day. We look forward to
                 celebrating this beautiful occasion together.
               </p>
-            </div>
+            </div> */}
 
             {/* ── Diamond rule before sign-off ── */}
-            <div className="flex items-center justify-center gap-2 w-full max-w-[200px] mb-[clamp(0.9rem,2.8vw,1.4rem)]">
+            {/* <div className="flex items-center justify-center gap-2 w-full max-w-[200px] mb-[clamp(0.9rem,2.8vw,1.4rem)]">
               <div className="h-px flex-1" style={{ background: "linear-gradient(to left, rgba(196,152,88,0.42), transparent)" }} />
               <div style={{ width: "5px", height: "5px", borderRadius: "1px", transform: "rotate(45deg)", background: "rgba(196,152,88,0.58)" }} />
               <div className="h-px flex-1" style={{ background: "linear-gradient(to right, rgba(196,152,88,0.42), transparent)" }} />
-            </div>
+            </div> */}
 
             {/* ── Sign-off ── */}
-            <p style={{
+            {/* <p style={{
               fontFamily: '"Cinzel", serif',
               fontSize: "clamp(0.50rem, 1.8vw, 0.65rem)",
               letterSpacing: "0.40em",
@@ -245,7 +245,7 @@ export function Welcome() {
               letterSpacing: "0.02em",
             }}>
               The Galardo Family
-            </p>
+            </p> */}
 
           </div>
         </div>

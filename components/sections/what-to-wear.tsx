@@ -1,0 +1,203 @@
+"use client"
+
+import { type ReactNode } from "react"
+import { motion } from "motion/react"
+import { Shirt } from "lucide-react"
+import { Section } from "@/components/section"
+import Image from "next/image"
+
+const DEEP      = "#3D2810"
+const MEDIUM    = "#8C6035"
+const ACCENT    = "#B8822A"
+const BABY_BLUE = "#3FA3C8"
+const BLUE_MID  = "#7BBEDD"
+const GOLD      = "#B8822A"
+const BLUSH     = "#EED4BC"
+const IVORY     = "#FEF9F3"
+
+const fadeUp = {
+  hidden:  { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.6, delay: i * 0.1, ease: "easeOut" as const },
+  }),
+}
+
+function OrnamentDivider({ blue = false }: { blue?: boolean }) {
+  const color = blue ? BABY_BLUE : ACCENT
+  const grad  = blue ? "rgba(126,200,227,0.4)" : "rgba(207,160,107,0.4)"
+  return (
+    <div className="flex items-center justify-center gap-3">
+      <div className="h-px w-8 sm:w-12" style={{ background: `linear-gradient(to left, ${grad}, transparent)` }} />
+      <span style={{ color, fontSize: "7px", opacity: 0.75 }}>✦</span>
+      <div className="h-px w-8 sm:w-12" style={{ background: `linear-gradient(to right, ${grad}, transparent)` }} />
+    </div>
+  )
+}
+
+function SectionLabel({ text }: { text: string }) {
+  return (
+    <p className="garamond" style={{ fontSize: "clamp(0.54rem, 2vw, 0.7rem)", letterSpacing: "0.48em", textTransform: "uppercase", color: BABY_BLUE, marginBottom: "0.4rem", paddingRight: "0.48em" }}>
+      {text}
+    </p>
+  )
+}
+
+function SectionTitle({ children }: { children: ReactNode }) {
+  return (
+    <h3 className="gistesy mt-2" style={{ fontSize: "clamp(2rem, 9vw, 4rem)", color: DEEP, lineHeight: 1.15, overflow: "visible", paddingTop: "0.1em" }}>
+      {children}
+    </h3>
+  )
+}
+
+function BokehOrbs() {
+  const orbs = [
+    { w: 380, h: 380, top: "5%",  left: "2%",  color: BABY_BLUE, opacity: 0.09, blur: 100 },
+    { w: 260, h: 260, top: "20%", left: "70%", color: GOLD,      opacity: 0.09, blur: 80  },
+    { w: 300, h: 300, top: "52%", left: "10%", color: BLUSH,     opacity: 0.12, blur: 90  },
+    { w: 220, h: 220, top: "68%", left: "74%", color: BABY_BLUE, opacity: 0.09, blur: 70  },
+    { w: 180, h: 180, top: "38%", left: "44%", color: GOLD,      opacity: 0.07, blur: 60  },
+  ]
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden>
+      {orbs.map((o, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            width: o.w,
+            height: o.h,
+            top: o.top,
+            left: o.left,
+            background: o.color,
+            opacity: o.opacity,
+            filter: `blur(${o.blur}px)`,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
+export function WhatToWear() {
+  return (
+    <Section id="what-to-wear" className="relative py-16 sm:py-20 md:py-24 overflow-hidden" bgColor="none">
+      <div className="absolute inset-0 -z-10" style={{ background: IVORY }} />
+
+      <div className="absolute inset-0 -z-10 pointer-events-none" style={{
+        background: `
+          linear-gradient(180deg,
+            rgba(215,237,248,0.45) 0%,
+            rgba(251,244,234,0.0)  25%,
+            rgba(213,238,248,0.30) 50%,
+            rgba(251,244,234,0.0)  75%,
+            rgba(238,212,188,0.35) 100%
+          )
+        `,
+      }} />
+
+      <div className="absolute inset-0 -z-10 pointer-events-none" style={{
+        background: `repeating-linear-gradient(
+          125deg,
+          transparent 0px,
+          transparent 160px,
+          rgba(255,255,255,0.22) 160px,
+          rgba(255,255,255,0.22) 162px
+        )`,
+      }} />
+
+      <BokehOrbs />
+
+      <div className="absolute inset-0 pointer-events-none z-0" aria-hidden>
+        <div className="absolute inset-0" style={{
+          background: `
+            radial-gradient(ellipse 50% 40% at 50% 28%, rgba(63,163,200,0.10) 0%, transparent 70%),
+            radial-gradient(ellipse 38% 32% at 50% 78%, rgba(184,130,42,0.08) 0%, transparent 65%)
+          `,
+        }} />
+      </div>
+
+      <div className="absolute inset-0 pointer-events-none z-[1]">
+        <Image src="/decoration/left-top-removebg-preview.png"    alt="" width={200} height={200} aria-hidden className="absolute top-0 left-0  w-auto h-auto max-w-[110px] sm:max-w-[155px] md:max-w-[200px] opacity-45" />
+        <Image src="/decoration/right-top-removebg-preview.png"   alt="" width={200} height={200} aria-hidden className="absolute top-0 right-0 w-auto h-auto max-w-[110px] sm:max-w-[155px] md:max-w-[200px] opacity-45" />
+        <Image src="/decoration/bottom-left-removebg-preview.png"  alt="" width={200} height={200} aria-hidden className="absolute bottom-0 left-0  w-auto h-auto max-w-[110px] sm:max-w-[155px] md:max-w-[200px] opacity-45" />
+        <Image src="/decoration/bottom-right-removebg-preview.png" alt="" width={200} height={200} aria-hidden className="absolute bottom-0 right-0 w-auto h-auto max-w-[110px] sm:max-w-[155px] md:max-w-[200px] opacity-45" />
+      </div>
+
+      <motion.div
+        className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6"
+        custom={0}
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-40px" }}
+      >
+        <div className="text-center mb-6">
+          <SectionLabel text="What to Wear" />
+          <OrnamentDivider blue />
+          <SectionTitle>Guest Attire</SectionTitle>
+        </div>
+
+        <div
+          className="rounded-3xl overflow-hidden"
+          style={{
+            background: "rgba(254,249,243,0.85)",
+            backdropFilter: "blur(14px)",
+            WebkitBackdropFilter: "blur(14px)",
+            border: "1px solid rgba(184,130,42,0.18)",
+            boxShadow: "0 12px 40px rgba(61,40,16,0.10), 0 3px 10px rgba(61,40,16,0.05)",
+          }}
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2">
+            <div
+              className="p-5 sm:p-6 flex flex-col items-center text-center gap-3 border-b sm:border-b-0 sm:border-r"
+              style={{ background: "rgba(254,252,248,0.70)", borderColor: "rgba(184,130,42,0.12)" }}
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center border-2 shadow-sm" style={{ background: "rgba(255,255,255,0.95)", borderColor: "rgba(184,130,42,0.25)" }}>
+                <Shirt className="w-5 h-5" style={{ color: GOLD }} />
+              </div>
+              <div>
+                <p className="garamond uppercase mb-1" style={{ fontSize: "clamp(0.52rem, 1.8vw, 0.62rem)", letterSpacing: "0.42em", color: BABY_BLUE }}>Godparents</p>
+                <h4 className="gistesy" style={{ fontSize: "clamp(1.3rem, 4.5vw, 1.8rem)", color: DEEP, lineHeight: 1.1 }}>Semi-Formal</h4>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ background: "rgba(255,255,255,0.85)", border: "1px solid rgba(184,130,42,0.20)" }}>
+                <div className="w-4 h-4 rounded-full border shadow-sm" style={{ backgroundColor: "#FFFFFF", borderColor: "rgba(184,130,42,0.30)" }} />
+                <span className="garamond" style={{ fontSize: "clamp(0.78rem, 2.5vw, 0.92rem)", color: DEEP }}>White attire</span>
+              </div>
+              <p className="garamond" style={{ fontSize: "clamp(0.78rem, 2.5vw, 0.9rem)", color: MEDIUM, lineHeight: 1.7 }}>
+                Godparents are kindly requested to wear semi-formal attire in white.
+              </p>
+            </div>
+
+            <div
+              className="p-5 sm:p-6 flex flex-col items-center text-center gap-3"
+              style={{ background: "rgba(213,238,248,0.35)" }}
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center border-2 shadow-sm" style={{ background: "rgba(63,163,200,0.12)", borderColor: "rgba(123,190,221,0.5)" }}>
+                <Shirt className="w-5 h-5" style={{ color: BABY_BLUE }} />
+              </div>
+              <div>
+                <p className="garamond uppercase mb-1" style={{ fontSize: "clamp(0.52rem, 1.8vw, 0.62rem)", letterSpacing: "0.42em", color: BABY_BLUE }}>Guests</p>
+                <h4 className="gistesy" style={{ fontSize: "clamp(1.3rem, 4.5vw, 1.8rem)", color: DEEP, lineHeight: 1.1 }}>Any Shade of Blue</h4>
+              </div>
+              <div className="flex items-center gap-2 flex-wrap justify-center">
+                {["#B8DFF0", "#7EC8E3", "#4CA9D0", "#2E86AB", "#1A6B9A"].map((c) => (
+                  <div key={c} className="w-6 h-6 rounded-full border-2 border-white shadow-sm ring-1 ring-sky-200" style={{ backgroundColor: c }} />
+                ))}
+              </div>
+              <p className="garamond" style={{ fontSize: "clamp(0.78rem, 2.5vw, 0.9rem)", color: MEDIUM, lineHeight: 1.7 }}>
+                Guests are warmly invited to wear any shade of blue.
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="p-4 sm:p-6 border-t"
+            style={{ background: "rgba(213,238,248,0.28)", borderColor: "rgba(123,190,221,0.30)" }}
+          />
+        </div>
+      </motion.div>
+    </Section>
+  )
+}

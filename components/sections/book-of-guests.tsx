@@ -203,7 +203,7 @@ export function BookOfGuests() {
         <OrnamentDivider />
 
         <h2 style={{
-          fontFamily: '"Cinzel", serif',
+          fontFamily: 'AmsterdamOne, cursive',
           fontSize: "clamp(1.6rem, 5.5vw, 2.8rem)",
           color: GOLD,
           lineHeight: 1.0,

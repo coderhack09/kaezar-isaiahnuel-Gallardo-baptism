@@ -4,15 +4,17 @@ import { Suspense, useState, useCallback, useEffect } from "react"
 import dynamic from "next/dynamic"
 import { Hero as MainHero } from "@/components/sections/hero"
 import { Welcome } from "@/components/sections/welcome"
-import { Countdown } from "@/components/sections/countdown"
 import { WeddingTimeline } from "@/components/sections/wedding-timeline"
 import { Gallery } from "@/components/sections/gallery"
 import { Messages } from "@/components/sections/messages"
 import { Details } from "@/components/sections/details"
+import { Celebrant } from "@/components/sections/celebrant"
 import { Entourage } from "@/components/sections/entourage"
+import { WhatToWear } from "@/components/sections/what-to-wear"
 import { PrincipalSponsors } from "@/components/sections/principal-sponsors"
 import { BookOfGuests } from "@/components/sections/book-of-guests"
 import { Registry } from "@/components/sections/registry"
+import { BabyHealth } from "@/components/sections/baby-health"
 import { FAQ } from "@/components/sections/faq"
 import { GuestInformation } from "@/components/sections/guest-information"
 import { Footer } from "@/components/sections/footer"
@@ -26,6 +28,10 @@ import { CoupleVideo } from "@/components/sections/couple-video"
 import { Celebration } from "@/components/sections/celebration"
 
 const Silk = dynamic(() => import("@/components/silk"), { ssr: false })
+const Countdown = dynamic(
+  () => import("@/components/sections/countdown").then((mod) => ({ default: mod.Countdown })),
+  { ssr: false }
+)
 const GuestList = dynamic(() => import("@/components/sections/guest-list").then(mod => ({ default: mod.GuestList })), { ssr: false })
 
 export default function Home() {
@@ -86,28 +92,30 @@ export default function Home() {
               {appState === AppState.DETAILS && <Navbar />}
               {/* Spacer so content starts below fixed navbar (h-12 sm:h-14 md:h-16) */}
               {appState === AppState.DETAILS && <div className="h-12 sm:h-14 md:h-16" aria-hidden />}
-              <MainHero />
+              {/* <MainHero /> */}
               <Welcome />
-              <CoupleVideo /> 
               <LoveStory />
+              <WeddingTimeline />
+              {/* <CoupleVideo />  */}
+
               <Countdown /> 
               {/* <Gallery /> */}
 
               <Details />
-              {/* <GuestInformation /> */}
-              <WeddingTimeline />
-      
+              <Celebrant />
               <Entourage />
-
+              <WhatToWear />
+              <Registry />
+              <BabyHealth />
               <GuestList />
 
               <BookOfGuests />
               <Messages />
               {/* <PrincipalSponsors /> */}
-              <FAQ />
-              <Registry />
-              <SnapShare />
-              <Celebration />
+              {/* <FAQ /> */}
+
+              {/* <SnapShare />
+              <Celebration /> */}
 
               <Footer />
             </div>

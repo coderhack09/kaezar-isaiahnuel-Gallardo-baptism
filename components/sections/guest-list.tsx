@@ -546,7 +546,7 @@ export function GuestList() {
           {/* Title */}
           <h2
             style={{
-              fontFamily: "cinzel",
+              fontFamily: "AmsterdamOne, cursive",
               fontSize: "clamp(2.8rem, 12vw, 5.5rem)",
               color: GOLD,
               lineHeight: 1.1,

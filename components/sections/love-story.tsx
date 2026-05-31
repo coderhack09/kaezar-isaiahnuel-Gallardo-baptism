@@ -84,15 +84,15 @@ function SectionHeader({
         </div>
 
         <h2
-          className="cinzel"
           style={{
-            fontSize: "clamp(1.8rem, 7vw, 2.2rem)",
-            fontWeight: 700,
-            color: "rgba(43,74,107,0.55)",
-            lineHeight: 1.2,
-            letterSpacing: "0.02em",
-            marginBottom: "0.5rem",
-            filter: "drop-shadow(0 2px 8px rgba(196,152,88,0.18))",
+            fontFamily: 'Gistesy, cursive',
+            // fontWeight: 700,
+            fontSize: "clamp(3rem, 13vw, 6rem)",
+            color: "#C4965A",
+            lineHeight: 1.0,
+            letterSpacing: "0.10em",
+            textShadow: "0 2px 20px rgba(43,74,107,0.14)",
+            display: "block",
           }}>
           My Story
         </h2>
@@ -104,12 +104,13 @@ function SectionHeader({
         </div>
 
         <p
-          className="lora-regular"
+          className="fahkwang"
           style={{
-            fontSize: "clamp(0.75rem, 3vw, 1rem)",
+            fontSize: "clamp(0.75rem, 2vw, 1rem)",
             letterSpacing: "0.06em",
-            color: MEDIUM,
+            color: "#C4965A",
             fontStyle: "italic",
+            fontFamily: 'Fahkwang, sans-serif',
           }}
         >
           {tagline}
@@ -356,7 +357,7 @@ export function LoveStory() {
 
         <Link
           href="#details"
-          className="cinzel inline-flex items-center justify-center group relative rounded-xl transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+          className="fahkwang inline-flex items-center justify-center group relative rounded-xl transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
           style={{
             color: "#fff",
             background: `linear-gradient(135deg, ${BABY_BLUE}, #2E8CB0)`,
@@ -374,7 +375,7 @@ export function LoveStory() {
         </Link>
 
         <p
-          className="cinzel mt-5"
+          className="fahkwang mt-5"
           style={{ fontSize: "clamp(0.72rem, 2.2vw, 0.84rem)", color: MEDIUM, fontStyle: "italic", opacity: 0.7 }}
         >
           It would be a joy to celebrate with you.

@@ -231,7 +231,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
         </FadeIn>
 
         {/* Son of + parents — soft subtitle */}
-        <FadeIn show={visible} delay={780}>
+        {/* <FadeIn show={visible} delay={780}>
           <div style={{ marginBottom: "clamp(1.3rem,3.8vw,2rem)" }}>
             <p style={{
               fontFamily: '"Cinzel", serif',
@@ -254,7 +254,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpen, visible }) => {
               {siteConfig.couple.parents}
             </p>
           </div>
-        </FadeIn>
+        </FadeIn> */}
 
         {/* Open Invitation button — premium style */}
         <FadeIn show={visible} delay={920}>

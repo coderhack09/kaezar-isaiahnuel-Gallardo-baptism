@@ -183,10 +183,10 @@ export function FAQ() {
             <OrnamentDivider />
 
             <h2 style={{
-              fontFamily: '"Cinzel", serif',
+              fontFamily: 'AmsterdamOne, cursive',
               fontSize: "clamp(1.6rem, 5.5vw, 2.8rem)",
               color: GOLD,
-              lineHeight: 1.0,
+              lineHeight: 2.0,
               marginTop: "1rem",
               marginBottom: "0.5rem",
               filter: "drop-shadow(0 2px 8px rgba(196,152,88,0.16))",

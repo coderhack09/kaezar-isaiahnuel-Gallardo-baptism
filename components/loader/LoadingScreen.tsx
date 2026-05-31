@@ -233,7 +233,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       ════════════════════════════════════════════ */}
       <div
         className="relative z-10 flex flex-col items-center w-full"
-        style={{ minHeight: "100svh", paddingBottom: "clamp(5rem,14vw,7rem)" }}
+        style={{ minHeight: "100svh", paddingBottom: "clamp(7.5rem,20vw,10rem)" }}
       >
 
         {/* ── SECTION 1: Monogram + Holy Baptism — top ── */}
@@ -266,7 +266,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             />
           </div>
 
-          <p style={{
+          {/* <p style={{
             ...vis(1, "0.3s"),
             fontFamily: '"Cinzel", serif',
             fontWeight: 700,
@@ -277,7 +277,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
             textShadow: "0 1px 8px rgba(28,48,80,0.10)",
           }}>
             Holy Baptism
-          </p>
+          </p> */}
         </div>
 
         {/* ── Flex spacer pushes name to center ── */}
@@ -359,7 +359,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         {/* ── SECTION 3: Son of + Parents — lower third ── */}
         <div
           className="flex flex-col items-center text-center px-6"
-          style={{ paddingBottom: "clamp(0.5rem,2vw,1rem)" }}
+          style={{ paddingBottom: "clamp(1rem,3vw,1.5rem)", marginBottom: "clamp(1.5rem,4vw,2.5rem)" }}
         >
           <div style={vis(4, "80ms")}>
             <p style={{

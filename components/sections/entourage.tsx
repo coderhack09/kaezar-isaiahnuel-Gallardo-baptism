@@ -103,21 +103,13 @@ function splitSponsors(sponsors: PrincipalSponsor[]): {
   return { ninongs, ninangs }
 }
 
-/** Split a flat name list into left/right columns; odd count centers the last name */
-function splitIntoTwoColumns(names: string[]): {
-  left: string[]
-  right: string[]
-  center?: string
-} {
-  if (names.length === 0) return { left: [], right: [] }
-  if (names.length % 2 === 1) {
-    const center = names[names.length - 1]
-    const rest = names.slice(0, -1)
-    const mid = rest.length / 2
-    return { left: rest.slice(0, mid), right: rest.slice(mid), center }
+/** Pair names into rows: 1st left, 2nd right, 3rd left (row 2), etc. */
+function pairNamesIntoRows(names: string[]): { left: string; right?: string }[] {
+  const rows: { left: string; right?: string }[] = []
+  for (let i = 0; i < names.length; i += 2) {
+    rows.push({ left: names[i], right: names[i + 1] })
   }
-  const mid = names.length / 2
-  return { left: names.slice(0, mid), right: names.slice(mid) }
+  return rows
 }
 
 const NAME_STYLE = {
@@ -136,58 +128,43 @@ function GodparentNameGrid({
   isVisible: boolean
   rowOffset?: number
 }) {
-  const { left, right, center } = splitIntoTwoColumns(names)
-  const maxRows = Math.max(left.length, right.length)
+  const rows = pairNamesIntoRows(names)
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 sm:gap-x-10 gap-y-0">
-        <div className="text-center sm:text-left space-y-2 sm:space-y-2.5">
-          {left.map((name, i) => (
-            <p
-              key={`l-${name}-${i}`}
-              className="transition-all duration-700"
-              style={{
-                ...NAME_STYLE,
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "none" : "translateY(8px)",
-                transitionDelay: `${Math.min((rowOffset + i) * 40, 900)}ms`,
-              }}
-            >
-              {name}
-            </p>
-          ))}
-        </div>
-        <div className="text-center sm:text-left space-y-2 sm:space-y-2.5">
-          {right.map((name, i) => (
-            <p
-              key={`r-${name}-${i}`}
-              className="transition-all duration-700"
-              style={{
-                ...NAME_STYLE,
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "none" : "translateY(8px)",
-                transitionDelay: `${Math.min((rowOffset + left.length + i) * 40, 900)}ms`,
-              }}
-            >
-              {name}
-            </p>
-          ))}
-        </div>
-      </div>
-      {center ? (
-        <p
-          className="text-center transition-all duration-700"
-          style={{
-            ...NAME_STYLE,
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "none" : "translateY(8px)",
-            transitionDelay: `${Math.min((rowOffset + maxRows) * 40, 900)}ms`,
-          }}
+    <div className="space-y-2 sm:space-y-2.5">
+      {rows.map((row, rowIndex) => (
+        <div
+          key={`row-${rowIndex}`}
+          className="grid grid-cols-2 gap-x-3 sm:gap-x-10"
         >
-          {center}
-        </p>
-      ) : null}
+          <p
+            className="text-left transition-all duration-700"
+            style={{
+              ...NAME_STYLE,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "none" : "translateY(8px)",
+              transitionDelay: `${Math.min((rowOffset + rowIndex * 2) * 40, 900)}ms`,
+            }}
+          >
+            {row.left}
+          </p>
+          {row.right ? (
+            <p
+              className="text-left transition-all duration-700"
+              style={{
+                ...NAME_STYLE,
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "none" : "translateY(8px)",
+                transitionDelay: `${Math.min((rowOffset + rowIndex * 2 + 1) * 40, 900)}ms`,
+              }}
+            >
+              {row.right}
+            </p>
+          ) : (
+            <div aria-hidden />
+          )}
+        </div>
+      ))}
     </div>
   )
 }
@@ -209,7 +186,7 @@ function GodparentSection({
     <div className="text-center">
       <h3
         style={{
-          fontFamily: '"LeJourScript", cursive',
+          fontFamily: 'AmsterdamOne, cursive',
           fontSize: "clamp(1.5rem, 5vw, 2.4rem)",
           color: DARK_NAVY,
           lineHeight: 1.15,
@@ -312,14 +289,14 @@ export function Entourage() {
           <h2
             className="mt-4"
             style={{
-              fontFamily: '"Cinzel", serif',
-              fontWeight: 600,
-              fontSize: "clamp(1.6rem, 7vw, 3.2rem)",
-              color: NAVY_MUTE,
+              fontFamily: 'AmsterdamOne, cursive',
+              // fontWeight: 600,
+              fontSize: "clamp(2.5rem, 10vw, 5.5rem)",
+              color: GOLD,
               lineHeight: 1.1,
               letterSpacing: "0.02em",
             }}>
-            My Godparents
+           My Godparents
           </h2>
 
           <p style={{
@@ -349,7 +326,7 @@ export function Entourage() {
                 {Array.from({ length: 2 }).map((_, section) => (
                   <div key={section} className="space-y-3">
                     <div className="h-8 rounded-lg mx-auto animate-pulse" style={{ width: "45%", background: "rgba(43,74,107,0.08)" }} />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
                       {Array.from({ length: 6 }).map((_, i) => (
                         <div key={i} className="h-5 rounded-lg animate-pulse" style={{ width: `${70 + (i % 3) * 8}%`, background: "rgba(43,74,107,0.08)" }} />
                       ))}
@@ -367,7 +344,7 @@ export function Entourage() {
                 <div className="h-px" style={{ background: "linear-gradient(to right, transparent, rgba(196,152,88,0.35), transparent)" }} />
 
                 <GodparentSection
-                  title="My Ninangs"
+                  title="My GodMothers"
                   names={ninangs}
                   isVisible={isVisible}
                   rowOffset={0}
@@ -380,7 +357,7 @@ export function Entourage() {
                 )}
 
                 <GodparentSection
-                  title="My Ninongs"
+                  title="My GodFathers"
                   names={ninongs}
                   isVisible={isVisible}
                   rowOffset={ninangs.length}

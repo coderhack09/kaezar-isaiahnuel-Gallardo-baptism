@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from "react"
-import { CloudinaryImage } from "@/components/ui/cloudinary-image"
+import Image from "next/image"
 // import { TornPaperEdge } from "./TornPaperEdge"
 
 // ── Palette — aligned with loader/Hero.tsx ────────────────────────────────────
@@ -119,7 +119,7 @@ export const StorySection: React.FC<StorySectionProps> = ({
                   }}
                 >
                   <div className="aspect-[3/4] w-full overflow-hidden relative group">
-                    <CloudinaryImage
+                    <Image
                       src={imageSrc}
                       alt="Story moment"
                       fill
@@ -164,7 +164,7 @@ export const StorySection: React.FC<StorySectionProps> = ({
               <h2
                 style={{
                   display: "block",
-                  fontFamily: '"Cinzel", serif',
+                  fontFamily: 'Gistesy, cursive',
                   fontSize: "clamp(1.4rem, 5vw, 3rem)",
                   color: GOLD,
                   lineHeight: 1.1,
