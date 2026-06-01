@@ -57,7 +57,7 @@ function bahrainLocalToUtcMs(date: string, time: string): number {
 
 function formatBahrainLocalTime(timeDisplay: string): string {
   const localTime = timeDisplay.split(",")[0].trim()
-  return `${localTime} GST`
+  return `${localTime} AST`
 }
 
 const SPARKLES = [

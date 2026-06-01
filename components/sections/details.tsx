@@ -512,7 +512,7 @@ Every sacred detail, lovingly prepared for My blessed celebration.
       {/* ══════════════════════════════════════════════════════════════
           GENTLE REMINDERS
       ══════════════════════════════════════════════════════════════ */}
-      <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 mb-12 sm:mb-16">
+      {/* <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 mb-12 sm:mb-16">
         <div className="text-center mb-6 sm:mb-8">
           <SectionLabel text="A Few Kind Notes" />
           <OrnamentDivider blue />
@@ -520,12 +520,12 @@ Every sacred detail, lovingly prepared for My blessed celebration.
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          {/* <ReminderCard eyebrow="A Sacred Moment" title="Unplugged Christening"
+          <ReminderCard eyebrow="A Sacred Moment" title="Unplugged Christening"
             icon={<Camera className="w-5 h-5" style={{ color: BABY_BLUE }} />} index={0}>
             <p className="garamond text-center" style={{ fontSize: "clamp(0.82rem, 2.8vw, 0.95rem)", color: `${DEEP}cc`, lineHeight: 1.85 }}>
               We are hosting a mostly unplugged christening. You are welcome to take a few photos, but please keep it minimal and avoid blocking our official photographer so every precious moment is beautifully captured. Photos will be shared after the celebration.
             </p>
-          </ReminderCard> */}
+          </ReminderCard>
 
           <ReminderCard eyebrow="Be On Time" title="Arrival"
             icon={<Clock className="w-5 h-5" style={{ color: BABY_BLUE }} />} index={1}>
@@ -535,7 +535,7 @@ Every sacred detail, lovingly prepared for My blessed celebration.
               <span style={{ color: DEEP, fontWeight: 600 }}>{siteConfig.ceremony.guestsTime}</span>.
             </p>
           </ReminderCard>
-{/* 
+
           <ReminderCard eyebrow="Kind Request" title="Dear Ninongs & Ninangs"
             icon={<Heart className="w-5 h-5" style={{ color: BABY_BLUE }} fill={BABY_BLUE} />} index={2}>
             <p className="garamond text-center" style={{ fontSize: "clamp(0.82rem, 2.8vw, 0.95rem)", color: `${DEEP}cc`, lineHeight: 1.85 }}>
@@ -549,10 +549,10 @@ Every sacred detail, lovingly prepared for My blessed celebration.
               </div>
               <p className="garamond text-xs sm:text-sm" style={{ color: `${DEEP}88` }}>{gcashQr.accountNumber}</p>
             </div>
-          </ReminderCard> */}
+          </ReminderCard>
 
         </div>
-      </div>
+      </div> */}
 
       {/* ══════════════════════════════════════════════════════════════
           CLOSING MESSAGE
