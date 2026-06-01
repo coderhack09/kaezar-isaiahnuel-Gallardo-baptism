@@ -6,10 +6,10 @@ import "./globals.css"
 import { siteConfig } from "@/content/site"
 import { ClientLayout } from "@/components/client-layout"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kaezar-isaiahnuel-Gallardo-baptism.vercel.app/"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kaezar-isaiahnuel-gallardo-baptism.vercel.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
-const desktopHero = "/background_music/LinkPreviewNew.jpg"
-const mobileHero = "/background_music/LinkPreviewNew.jpg"
+const desktopHero = "/Details/LinkPreviewNew.png"
+const mobileHero = "/Details/LinkPreviewNew.png"
 const eventImageUrl = `${canonicalUrl}${desktopHero}`
 
 const coupleNames = `Kaezar Isaiahnuel`
