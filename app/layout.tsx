@@ -13,8 +13,8 @@ const mobileHero = "/Details/LinkPreviewNew.png"
 const eventImageUrl = `${canonicalUrl}${desktopHero}`
 
 const coupleNames = `Kaezar Isaiahnuel`
-const eventTitle = `${coupleNames} - Wedding Invitation`
-const eventDescription = `Celebrate the Christening of Kaezar Isaiahnuel on ${siteConfig.wedding.date} at ${siteConfig.ceremony.venue}. RSVP, explore their story, and find everything you need to join the celebration.`
+const eventTitle = `${coupleNames} Holy Baptism Invitation`
+const eventDescription = `Celebrate the Holy Baptism of Kaezar Isaiahnuel on ${siteConfig.wedding.date} at ${siteConfig.ceremony.venue}. RSVP, explore their story, and find everything you need to join the celebration.`
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -55,7 +55,7 @@ const jsonLd = {
     "@type": "Person",
     name: coupleNames,
   },
-  eventHashtag: `#KaezarIsaiahnuelChristening`,
+  eventHashtag: `#KaezarIsaiahnuelHolyBaptism`,
 }
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -71,8 +71,8 @@ export const metadata: Metadata = {
   },
   description: eventDescription,
   keywords:
-    `Kaezar Isaiahnuel, Christening Celebration, ${siteConfig.ceremony.venue} Christening, ${siteConfig.reception.venue} Christening, Christening Invitation, RSVP, Christening Gallery, Message Wall, Love Story, #KaezarIsaiahnuelChristening`,
-  applicationName: `${coupleNames} Wedding Invitation`,
+    `Kaezar Isaiahnuel, Holy Baptism, ${siteConfig.ceremony.venue} Holy Baptism, ${siteConfig.reception.venue} Holy Baptism, Holy Baptism Invitation, RSVP, Holy Baptism Gallery, Message Wall, Love Story, #KaezarIsaiahnuelHolyBaptism`,
+      applicationName: `${coupleNames} Holy Baptism Invitation`,
   authors: [
     { name: "Kaezar Isaiahnuel" },
   ],
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
       { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/favicon_io/favicon.ico",
+    shortcut: "/favicon_io/favicon.ico",  
     apple: "/favicon_io/apple-touch-icon.png",
     other: [
       { rel: "android-chrome-192x192", url: "/favicon_io/android-chrome-192x192.png" },
@@ -101,12 +101,12 @@ export const metadata: Metadata = {
   },
   manifest: "/favicon_io/site.webmanifest",
   openGraph: {
-    title: `Kaezar Isaiahnuel - Christening Celebration`,
+    title: `Kaezar Isaiahnuel Holy Baptism`,
     description:
-      `Celebrate the Christening of Kaezar Isaiahnuel on ${siteConfig.wedding.date}. Discover their story, RSVP, and find important details for the ceremony and reception.`,
+      `Celebrate the Holy Baptism of Kaezar Isaiahnuel on ${siteConfig.wedding.date}. Discover their story, RSVP, and find important details for the ceremony and reception.`,
     url: canonicalUrl,
-    siteName: `${coupleNames} Wedding`,
-    locale: "en_PH",
+    siteName: `${coupleNames} Holy Baptism`,
+    locale: "en_US",          
     type: "website",
     images: [
       {
@@ -115,15 +115,15 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         type: "image/jpeg",
-        alt: `Kaezar Isaiahnuel - Christening Celebration`,
+        alt: `Kaezar Isaiahnuel Holy Baptism`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Kaezar Isaiahnuel - Christening Celebration`,
+    title: `Kaezar Isaiahnuel Holy Baptism`,
     description:
-      `You're invited to the Christening of Kaezar Isaiahnuel on ${siteConfig.wedding.date}. RSVP, explore their story, and get all the details for the big day! #KaezarIsaiahnuelChristening`,
+      `You're invited to the Holy Baptism of Kaezar Isaiahnuel on ${siteConfig.wedding.date}. RSVP, explore their story, and get all the details for the big day! #KaezarIsaiahnuelHolyBaptism`,
     images: [eventImageUrl],
     creator: `@KaezarIsaiahnuel`,
     site: `@KaezarIsaiahnuel`,
