@@ -19,6 +19,47 @@ interface TimeLeft {
   seconds: number
 }
 
+/** Bahrain Standard Time (Asia/Bahrain) — fixed UTC+3, no daylight saving. */
+const BAHRAIN_UTC_OFFSET_HOURS = 3
+
+const MONTH_MAP: Record<string, string> = {
+  January: "01", February: "02", March: "03", April: "04",
+  May: "05", June: "06", July: "07", August: "08",
+  September: "09", October: "10", November: "11", December: "12",
+}
+
+function parseTime12h(timeStr: string): { hour: number; minute: number } {
+  const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i)
+  if (!match) return { hour: 0, minute: 0 }
+  let hour = parseInt(match[1], 10)
+  const minute = parseInt(match[2], 10)
+  const ampm = match[3].toUpperCase()
+  if (ampm === "PM" && hour !== 12) hour += 12
+  if (ampm === "AM" && hour === 12) hour = 0
+  return { hour, minute }
+}
+
+/** Converts a ceremony date/time in Bahrain local time to a UTC epoch ms value. */
+function bahrainLocalToUtcMs(date: string, time: string): number {
+  const [monthName = "January", dayRaw = "1", yearStr = "2026"] = date.split(" ")
+  const monthNum = MONTH_MAP[monthName] ?? "01"
+  const day = dayRaw.replace(/\D/g, "").padStart(2, "0")
+  const { hour, minute } = parseTime12h(time.split(",")[0].trim())
+  return Date.UTC(
+    parseInt(yearStr, 10),
+    parseInt(monthNum, 10) - 1,
+    parseInt(day, 10),
+    hour - BAHRAIN_UTC_OFFSET_HOURS,
+    minute,
+    0,
+  )
+}
+
+function formatBahrainLocalTime(timeDisplay: string): string {
+  const localTime = timeDisplay.split(",")[0].trim()
+  return `${localTime} GST`
+}
+
 const SPARKLES = [
   { top: "14%", left: "8%",   size: 3,   op: 0.45 },
   { top: "22%", left: "14%",  size: 2,   op: 0.30 },
@@ -188,28 +229,8 @@ export function Countdown() {
   const givenName  = parts[0]
   const middleName = parts.length > 2 ? parts[1] : ""
 
-  const timeStr  = ceremonyTimeDisplay.split(",")[0].trim()
-  const monthMap: Record<string, string> = {
-    January: "01", February: "02", March: "03", April: "04",
-    May: "05", June: "06", July: "07", August: "08",
-    September: "09", October: "10", November: "11", December: "12",
-  }
-  const monthNum = monthMap[ceremonyMonth] || "05"
-  const dayNum   = ceremonyDayNumber.padStart(2, "0")
-
-  const timeMatch = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i)
-  let hour = 8, mins = 0
-  if (timeMatch) {
-    hour = parseInt(timeMatch[1])
-    mins = parseInt(timeMatch[2])
-    const ampm = timeMatch[3].toUpperCase()
-    if (ampm === "PM" && hour !== 12) hour += 12
-    if (ampm === "AM" && hour === 12) hour = 0
-  }
-
-  const targetTimestamp = new Date(
-    Date.UTC(parseInt(ceremonyYear), parseInt(monthNum) - 1, parseInt(dayNum), hour - 8, mins, 0)
-  ).getTime()
+  const ceremonyTimeBahrain = formatBahrainLocalTime(ceremonyTimeDisplay)
+  const targetTimestamp = bahrainLocalToUtcMs(ceremonyDate, ceremonyTimeDisplay)
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
   const [mounted,  setMounted]  = useState(false)
@@ -538,7 +559,7 @@ export function Countdown() {
                 textTransform: "uppercase",
                 color: "rgba(72,112,148,0.72)",
               }}>
-                {ceremonyTimeDisplay.split(",")[0]}
+                {ceremonyTimeBahrain}
               </span>
               <div className="h-px flex-1" style={{ background: "linear-gradient(to right, rgba(196,152,88,0.40), transparent)" }} />
             </div>

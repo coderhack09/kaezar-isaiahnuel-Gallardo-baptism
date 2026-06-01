@@ -520,12 +520,12 @@ Every sacred detail, lovingly prepared for My blessed celebration.
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          <ReminderCard eyebrow="A Sacred Moment" title="Unplugged Christening"
+          {/* <ReminderCard eyebrow="A Sacred Moment" title="Unplugged Christening"
             icon={<Camera className="w-5 h-5" style={{ color: BABY_BLUE }} />} index={0}>
             <p className="garamond text-center" style={{ fontSize: "clamp(0.82rem, 2.8vw, 0.95rem)", color: `${DEEP}cc`, lineHeight: 1.85 }}>
               We are hosting a mostly unplugged christening. You are welcome to take a few photos, but please keep it minimal and avoid blocking our official photographer so every precious moment is beautifully captured. Photos will be shared after the celebration.
             </p>
-          </ReminderCard>
+          </ReminderCard> */}
 
           <ReminderCard eyebrow="Be On Time" title="Arrival"
             icon={<Clock className="w-5 h-5" style={{ color: BABY_BLUE }} />} index={1}>
@@ -557,46 +557,7 @@ Every sacred detail, lovingly prepared for My blessed celebration.
       {/* ══════════════════════════════════════════════════════════════
           CLOSING MESSAGE
       ══════════════════════════════════════════════════════════════ */}
-      <motion.div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 pb-6"
-        custom={5} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}>
-        <div
-          className="rounded-3xl p-6 sm:p-10 text-center overflow-hidden"
-          style={{
-            background: "rgba(254,249,243,0.88)",
-            backdropFilter: "blur(14px)",
-            WebkitBackdropFilter: "blur(14px)",
-            border: "1px solid rgba(184,130,42,0.20)",
-            boxShadow: "0 12px 44px rgba(61,40,16,0.11), 0 3px 12px rgba(61,40,16,0.05)",
-          }}
-        >
-          {/* Gold+blue accent stripe */}
-          {/* <div className="h-[3px] w-full rounded-full mb-6 mx-auto max-w-[160px]" style={{ background: `linear-gradient(to right, ${GOLD}, ${BABY_BLUE}, ${BLUE_MID})` }} /> */}
-          {/* Top ornament */}
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 sm:w-20" style={{ background: `linear-gradient(to left, ${GOLD}70, transparent)` }} />
-            <Heart className="w-5 h-5" fill={BABY_BLUE} style={{ color: BABY_BLUE, filter: `drop-shadow(0 0 6px rgba(63,163,200,0.45))` }} />
-            <div className="h-px w-12 sm:w-20" style={{ background: `linear-gradient(to right, ${GOLD}70, transparent)` }} />
-          </div>
 
-          <p className="garamond mb-4" style={{ fontSize: "clamp(0.92rem, 3vw, 1.1rem)", color: `${DEEP}cc`, lineHeight: 1.95, fontStyle: "italic" }}>
-            Thank you for being part of the story God wrote for our family.
-          </p>
-
-          <p className="gistesy" style={{ fontSize: "clamp(1.8rem, 7vw, 3rem)", color: DEEP, lineHeight: 1.1, overflow: "visible", paddingTop: "0.1em" }}>
-            With love,
-          </p>
-          <p className="amsterdam-one" style={{ fontSize: "clamp(2.2rem, 9vw, 3.8rem)", color: BABY_BLUE, lineHeight: 1.1, marginTop: "0.2rem" }}>
-            Kaezar
-          </p>
-
-          {/* Bottom ornament */}
-          <div className="flex items-center justify-center gap-3 mt-6">
-            <div className="h-px w-12 sm:w-20" style={{ background: `linear-gradient(to left, ${GOLD}70, transparent)` }} />
-            <ShieldCheck className="w-5 h-5" style={{ color: BABY_BLUE, opacity: 0.7 }} />
-            <div className="h-px w-12 sm:w-20" style={{ background: `linear-gradient(to right, ${GOLD}70, transparent)` }} />
-          </div>
-        </div>
-      </motion.div>
 
       {/* ══════════════════════════════════════════════════════════════
           QR MODAL

@@ -28,12 +28,12 @@ interface Milestone {
 
 // ── Timeline data ─────────────────────────────────────────────────────────────
 const milestones: Milestone[] = [
-  // {
-  //   date: "May 5, 2025",
-  //   title: "The Day My Miracle Began",
-  //   caption: "IUI Procedure — with Doctor & Nurse",
-  //   media: { type: "photo", src: "/desktop_background/image00001.jpeg" },
-  // },
+  {
+    date: "May 5, 2025",
+    title: "The Day My Miracle Began",
+    caption: "IUI Procedure",
+    media: { type: "photo", src: "/desktop_background/image00001.jpeg" },
+  },
   {
     date: "May 23, 2025",
     title: "The Day Heaven Answered Their Prayers",
@@ -41,7 +41,7 @@ const milestones: Milestone[] = [
     media: { type: "video", src: "/desktop_background/ScreenRecording_05-25-2026 13-15-38_1.mov" },
   },
   {
-    title: "First Glimpse of Me",
+    title: "A Glimpse of Me",
     caption: "Ultrasound",
     media: { type: "video", src: "/desktop_background/IMG_3693.mov" },
   },
@@ -61,13 +61,13 @@ const milestones: Milestone[] = [
     date: "January 12, 2026",
     title: "The Day They Finally Held Me",
     details: ["2:35 PM", "2.540 kg · 46 cm", "Emergency C-Section"],
-    caption: "Birth & Hospital Photos",
+    caption: "My Birth",
     media: { type: "photo", src: "/desktop_background/image00008.jpeg" },
   },
   {
     date: "July 4, 2026",
     title: "And Now I Am Getting Baptized",
-    caption: "Family Photo with Rosary",
+    caption: "",
     media: { type: "photo", src: "/desktop_background/image00005.jpeg" },
     isFinal: true,
   },
@@ -100,10 +100,10 @@ function AutoPlayVideo({ src, caption }: { src: string; caption?: string }) {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden border-2 shadow-[0_8px_32px_rgba(91,181,213,0.30)]"
+      className="w-full rounded-2xl overflow-hidden border-2 shadow-[0_8px_32px_rgba(91,181,213,0.30)]"
       style={{ borderColor: BLUE_MID, background: "#fff" }}
     >
-      <div className="relative">
+      <div className="relative w-full">
         <video
           ref={videoRef}
           src={src}
@@ -145,10 +145,13 @@ function MediaSlot({
 
   if (media.type === "photo") {
     return (
-      <div className="w-full max-w-[190px] sm:max-w-[215px]" style={{ transform: `rotate(${rotate}deg)` }}>
-        {/* Polaroid card */}
+      <div
+        className="w-[150px] sm:w-[172px] shrink-0"
+        style={{ transform: `rotate(${rotate}deg)` }}
+      >
+        {/* Polaroid card — fixed width so caption length never shrinks the photo */}
         <div
-          className="rounded-sm overflow-hidden"
+          className="w-full rounded-sm overflow-hidden"
           style={{
             background: "#fff",
             padding: "7px",
@@ -156,14 +159,14 @@ function MediaSlot({
             boxShadow: "0 8px 32px rgba(107,79,58,0.18), 0 2px 8px rgba(107,79,58,0.10)",
           }}
         >
-          <div className="relative aspect-[3/4] overflow-hidden rounded-[2px]">
+          <div className="relative w-full aspect-[3/4] overflow-hidden rounded-[2px]">
             {media.src ? (
               <Image
                 src={media.src}
                 alt={caption ?? ""}
                 fill
                 className="object-cover object-top"
-                sizes="215px"
+                sizes="172px"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center" style={{ background: BLUE_SOFT }}>
@@ -188,7 +191,7 @@ function MediaSlot({
 
   // Video slot
   return (
-    <div className="w-full max-w-[190px] sm:max-w-[215px]">
+    <div className="w-[150px] sm:w-[172px] shrink-0">
       {media.src ? (
         <AutoPlayVideo src={media.src} caption={caption} />
       ) : (

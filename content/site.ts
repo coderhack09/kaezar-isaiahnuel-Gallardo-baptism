@@ -7,7 +7,7 @@ export const siteConfig = {
     child: "Kaezar Isaiahnuel Gallardo",
     childNickname: "King",
     monogram:"/monogram/new-mongoram.png" ,//Ltryl
-    // backgroundMusic:"/background_music/For This Child - Baby Dedication Song - Ken Blount.mp3",
+    backgroundMusic:"/background_music/For This Child - Baby Dedication Song - Ken Blount.mp3",
     parents: "Engr. Carl Kevin & Christine Marie Gallardo",
   },
   googleAPI:{
@@ -37,12 +37,12 @@ export const siteConfig = {
     },
   },
   giftRegistry: {
-    QR_1: {
-      id: "Gcash",
-      src: "/QR/newGcash.png",
-      label: "GCash",
-      accountNumber: "GCash: GE***L A** V.",
-    },
+    // QR_1: {
+    //   id: "Gcash",
+    //   src: "/QR/newGcash.png",
+    //   label: "GCash",
+    //   accountNumber: "GCash: GE***L A** V.",
+    // },
     QR_2: {
       id: "PNB",
       src: "/desktop_background/image00003.jpeg",
@@ -52,7 +52,7 @@ export const siteConfig = {
     QR_3: {
       id: "BenefitPay",
       src: "/desktop_background/image00002.jpeg",
-      label: "BenefitPay Transfer",
+      label: "BenefitPay",
       accountNumber: "BenefitPay",
     },
   },

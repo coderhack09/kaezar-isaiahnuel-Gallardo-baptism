@@ -142,7 +142,7 @@ function MessageForm({ onSuccess, onMessageSent }: MessageFormProps) {
               Leave a Blessing
             </h3>
             <p className="garamond" style={{ fontSize: "clamp(0.72rem, 2.2vw, 0.84rem)", color: MEDIUM, fontStyle: "italic" }}>
-              Your words will be treasured by this little family forever.
+              Your words will be treasured by our little family forever.
             </p>
           </div>
 
@@ -383,7 +383,7 @@ export function Messages() {
                 margin: "0 auto",
               }}
             >
-              Leave a short note or a prayer. Every blessing becomes part of Kaezar&apos;s forever story.
+              Leave a short note or a prayer. Every blessing becomes part of my forever story.
             </p>
 
             <div className="flex items-center justify-center gap-3 mt-5">

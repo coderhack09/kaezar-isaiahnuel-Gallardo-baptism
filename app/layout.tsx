@@ -8,8 +8,8 @@ import { ClientLayout } from "@/components/client-layout"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kaezar-isaiahnuel-Gallardo-baptism.vercel.app/"
 const canonicalUrl = siteUrl.replace(/\/$/, "")
-const desktopHero = "/Details/newLinkPreview.png"
-const mobileHero = "/Details/newLinkPreview.png"
+const desktopHero = "/background_music/LinkPreviewNew.jpg"
+const mobileHero = "/background_music/LinkPreviewNew.jpg"
 const eventImageUrl = `${canonicalUrl}${desktopHero}`
 
 const coupleNames = `Kaezar Isaiahnuel`
@@ -19,7 +19,7 @@ const eventDescription = `Celebrate the Christening of Kaezar Isaiahnuel on ${si
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Event",
-  name: `Kaezar Isaiahnuel - Christening Celebration`,
+  name: `Kaezar Isaiahnuel Holy Baptism`,
   startDate: "2026-03-21T09:30:00+08:00",
   endDate: "2026-03-21T21:30:00+08:00",
   eventStatus: "https://schema.org/EventScheduled",

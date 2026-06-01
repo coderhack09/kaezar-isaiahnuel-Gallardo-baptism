@@ -126,7 +126,7 @@ export function Celebrant() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="text-center mb-7 sm:mb-8">
-            <p
+            {/* <p
               style={{
                 fontFamily: '"Cinzel", serif',
                 fontSize: "clamp(0.52rem, 1.9vw, 0.64rem)",
@@ -138,8 +138,8 @@ export function Celebrant() {
               }}
             >
               Our Celebrant
-            </p>
-            <OrnamentDivider />
+            </p> */}
+            {/* <OrnamentDivider /> */}
             <h2
               className="mt-4"
               style={{

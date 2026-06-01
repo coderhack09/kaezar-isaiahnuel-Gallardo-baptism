@@ -341,9 +341,9 @@ export function LoveStory() {
       />
 
       {/* ── Footer / CTA ── */}
-      <div className="relative z-10 text-center px-4 pt-10 pb-16 sm:pb-20 md:pb-24">
+      {/* <div className="relative z-10 text-center px-4 pt-10 pb-16 sm:pb-20 md:pb-24">
 
-        {/* Bottom floral corners */}
+       
         <Image src="/decoration/bottom-left-removebg-preview.png"  alt="" width={180} height={180} aria-hidden
           className="absolute bottom-0 left-0 pointer-events-none select-none w-20 sm:w-28 md:w-36 opacity-40" />
         <Image src="/decoration/bottom-right-removebg-preview.png" alt="" width={180} height={180} aria-hidden
@@ -380,7 +380,7 @@ export function LoveStory() {
         >
           It would be a joy to celebrate with you.
         </p>
-      </div>
+      </div> */}
 
     </div>
   )
