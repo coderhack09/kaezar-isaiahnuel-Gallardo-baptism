@@ -10,7 +10,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kaezar-isaiahnuel-g
 const canonicalUrl = siteUrl.replace(/\/$/, "")
 const desktopHero = "/Details/LinkPreviewNew.png"
 const mobileHero = "/Details/LinkPreviewNew.png"
-const eventImageUrl = `${canonicalUrl}${desktopHero}`
+// JPEG variant is optimized for WhatsApp/Facebook crawlers (≤300 KB, correct MIME type)
+const ogImagePath = "/Details/LinkPreviewNew.png"
+const eventImageUrl = `${canonicalUrl}${ogImagePath}`
 
 const coupleNames = `Kaezar Isaiahnuel`
 const eventTitle = `${coupleNames} Holy Baptism Invitation`
@@ -110,7 +112,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: eventImageUrl,
+        url: ogImagePath,
         secureUrl: eventImageUrl,
         width: 1200,
         height: 630,
@@ -174,6 +176,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Style+Script&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Kapakana:wght@300..400&display=swap" rel="stylesheet" />
+        <meta property="og:image" content={eventImageUrl} />
+        <meta property="og:image:secure_url" content={eventImageUrl} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Kaezar Isaiahnuel Holy Baptism" />
         <link rel="preload" as="image" href={mobileHero} media="(max-width: 767px)" />
         <link rel="preload" as="image" href={desktopHero} media="(min-width: 768px)" />
         <link rel="preload" as="image" href="/Details/St. Augustine Parish Church.jpg" />
