@@ -462,7 +462,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 pb-2">
               <div className="text-center md:text-left">
                 <p className="garamond" style={{ fontSize: "clamp(0.65rem, 1.8vw, 0.76rem)", color: MEDIUM }}>
-                  © {year} — {parentNames} — crafted with love, prayers, and gratitude.
+                  © {year} — {siteConfig.couple.parents} — crafted with love, prayers, and gratitude.
                 </p>
                 <p className="garamond" style={{ fontSize: "clamp(0.62rem, 1.6vw, 0.72rem)", color: MEDIUM, opacity: 0.8, fontStyle: "italic", marginTop: "0.2rem" }}>
                   In celebration of {childName}&apos;s christening.
